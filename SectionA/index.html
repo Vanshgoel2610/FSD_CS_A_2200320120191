@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #ffffff;
+          margin: 0;
+        }
+.login{
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #ed4b4b;
+    text-align: center;
+}
+.button {
+  background-color: #2ab045;
+  border: none;
+  color: rgb(0, 0, 0);
+}
+.reset {
+  background-color: #c91267;
+  border: none;
+  color: rgb(13, 7, 7);
+}
+</style>
+</head>
+<body>
+<div class="login">
+    <h2>LOGIN</h2>
+    Enter email: <input type="email" id="username" placeholder="email" required><br><br>
+    Enter password: <input type="password" id="password" placeholder="Password" required><br><br>
+    <button class = "button" onclick="validateLogin()">Login</button>
+    <button class="reset" onclick="resetForm()">Reset</button>
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+    const validUsername = "admin";
+    const validPassword = "admin";
+
+    function validateLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      if (username === validUsername && password === validPassword) {
+        message.textContent = "Login successful! ";
+        setTimeout(() => {
+          window.location.href = "currencyConverter.html";
+        }, 1500);
+      } else {
+        message.textContent = "Login failed.";
+      }
+    }
+    function resetForm() {
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("message").textContent = "";
+    }
+</script>
